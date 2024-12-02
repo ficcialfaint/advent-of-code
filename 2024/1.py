@@ -3,31 +3,31 @@ from collections import Counter
 
 content = read_input().split('\n')
 
-_list1 = []
-_list2 = []
+list1, list2 = [], []
 
 for i in content:
-    nums = i.split("   ")
-    _list1.append(int(nums[0]))
-    _list2.append(int(nums[1]))
+    nums = i.split()
+    list1.append(int(nums[0]))
+    list2.append(int(nums[1]))
 
-_list1.sort()
-_list2.sort()
+list1.sort()
+list2.sort()
 
 num1 = 0
-for i in range(len(_list1)):
-    num1 += abs(_list1[i] - _list2[i])
+for i in range(len(list1)):
+    num1 += abs(list1[i] - list2[i])
 
 print(num1)
 
 num2 = 0
-counter = Counter(_list2)
+counter = Counter(list1)
+counter2 = Counter(list2)
 
-for i in counter:
-    if i not in _list1:
+for i in counter2:
+    if i not in list1:
         continue
 
-    num2 += i*counter[i]
+    num2 += i*counter2[i]*counter[i]
 
 print(num2)
 
