@@ -2,3 +2,4 @@
 .idea/
 *.input
 **/input
+.DS_Store
